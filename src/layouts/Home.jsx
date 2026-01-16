@@ -5,7 +5,9 @@ import Header from "../components/Header";
 const Home = () => {
   return (
     <div>
-      <Header />
+      <header>
+        <Header />
+      </header>
       <main>
         <section>I am left side</section>
         <section>
