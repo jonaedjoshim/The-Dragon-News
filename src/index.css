@@ -18,3 +18,8 @@
 * {
   font-family: "Poppins", sans-serif;
 }
+
+a.active {
+  /* css file e tailwind likhle @apply use korte hoy */
+  @apply bg-base-300
+}
