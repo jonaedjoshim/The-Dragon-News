@@ -1,9 +1,33 @@
-import React from "react";
-import { useParams } from "react-router";
+import React, { useEffect, useState } from "react";
+import { useLoaderData, useParams } from "react-router";
 
 const CategoryNews = () => {
   const { id } = useParams();
-  return <div>CategoryNews - {id}</div>;
+  const data = useLoaderData();
+  const [CategoryNews, setCategoryNews] = useState([]);
+  useEffect(() => {
+    if (id == "0") {
+      setCategoryNews(data);
+      return;
+    } else if (id == "1") {
+      const filteredNews = data.filter(
+        (news) => news.others.is_tpday_pick == true,
+      );
+      setCategoryNews(filteredNews);
+    }else {
+      const filteredNews = data.filter((news) => news.category_id == id);
+      console.log(filteredNews);
+      setCategoryNews(filteredNews);
+    }
+  }, [data, id]);
+
+  return (
+    <div>
+      <h2 className="font-semibold text-xl">
+        Total {CategoryNews.length} found
+      </h2>
+    </div>
+  );
 };
 
 export default CategoryNews;
