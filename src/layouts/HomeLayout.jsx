@@ -18,8 +18,8 @@ const Home = () => {
           <Navbar />
         </nav>
       </header>
-      <main className="grid grid-cols-12">
-        <aside className="col-span-3">
+      <main className="grid grid-cols-12 gap-6">
+        <aside className="col-span-3 text-center">
           <LeftAside />
         </aside>
         <section className="col-span-6">
