@@ -5,7 +5,7 @@ const FindUs = () => {
     <div>
       <h2 className="font-semibold text-xl mb-5">Find Us on</h2>
       <div className="join join-vertical w-full">
-        <button className="btn join-item bg-[#0967C2] text-white border-[#0059b3]">
+        <button className="btn join-item bg-base-100 justify-start hover:bg-base-200">
           <svg
             aria-label="LinkedIn logo"
             width="16"
@@ -14,14 +14,14 @@ const FindUs = () => {
             viewBox="0 0 32 32"
           >
             <path
-              fill="white"
+              fill="#0077B5"
               d="M26.111,3H5.889c-1.595,0-2.889,1.293-2.889,2.889V26.111c0,1.595,1.293,2.889,2.889,2.889H26.111c1.595,0,2.889-1.293,2.889-2.889V5.889c0-1.595-1.293-2.889-2.889-2.889ZM10.861,25.389h-3.877V12.87h3.877v12.519Zm-1.957-14.158c-1.267,0-2.293-1.034-2.293-2.31s1.026-2.31,2.293-2.31,2.292,1.034,2.292,2.31-1.026,2.31-2.292,2.31Zm16.485,14.158h-3.858v-6.571c0-1.802-.685-2.809-2.111-2.809-1.551,0-2.362,1.048-2.362,2.809v6.571h-3.718V12.87h3.718v1.686s1.118-2.069,3.775-2.069,4.556,1.621,4.556,4.975v7.926Z"
               fillRule="evenodd"
             ></path>
           </svg>
           LinkedIn
         </button>
-        <button className="btn join-item bg-[#FEE502] text-[#181600] border-[#f1d800]">
+        <button className="btn join-item bg-base-100 justify-start hover:bg-base-200">
           <svg
             aria-label="Kakao logo"
             width="16"
@@ -36,7 +36,7 @@ const FindUs = () => {
           </svg>
           카카오
         </button>
-        <button className="btn join-item bg-[#03C755] text-white border-[#00b544]">
+        <button className="btn join-item bg-base-100 justify-start hover:bg-base-200">
           <svg
             aria-label="Line logo"
             width="16"
@@ -44,7 +44,7 @@ const FindUs = () => {
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 16 16"
           >
-            <g fillRule="evenodd" strokeLinejoin="round" fill="white">
+            <g fillRule="evenodd" strokeLinejoin="round" fill="#00B900">
               <path
                 fillRule="nonzero"
                 d="M12.91 6.57c.232 0 .42.19.42.42 0 .23-.188.42-.42.42h-1.17v.75h1.17a.42.42 0 1 1 0 .84h-1.59a.42.42 0 0 1-.418-.42V5.4c0-.23.188-.42.42-.42h1.59a.42.42 0 0 1-.002.84h-1.17v.75h1.17zm-2.57 2.01a.421.421 0 0 1-.757.251l-1.63-2.217V8.58a.42.42 0 0 1-.42.42.42.42 0 0 1-.418-.42V5.4a.418.418 0 0 1 .755-.249L9.5 7.366V5.4c0-.23.188-.42.42-.42.23 0 .42.19.42.42v3.18zm-3.828 0c0 .23-.188.42-.42.42a.42.42 0 0 1-.418-.42V5.4c0-.23.188-.42.42-.42.23 0 .418.19.418.42v3.18zM4.868 9h-1.59c-.23 0-.42-.19-.42-.42V5.4c0-.23.19-.42.42-.42.232 0 .42.19.42.42v2.76h1.17a.42.42 0 1 1 0 .84M16 6.87C16 3.29 12.41.376 8 .376S0 3.29 0 6.87c0 3.208 2.846 5.896 6.69 6.405.26.056.615.172.705.394.08.2.053.518.026.722 0 0-.092.565-.113.685-.035.203-.16.79.693.432.854-.36 4.607-2.714 6.285-4.646C15.445 9.594 16 8.302 16 6.87"
