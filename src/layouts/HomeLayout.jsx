@@ -19,13 +19,13 @@ const Home = () => {
         </nav>
       </header>
       <main className="grid grid-cols-12 gap-6">
-        <aside className="col-span-3">
+        <aside className="col-span-3 h-fit top-2 sticky">
           <LeftAside />
         </aside>
         <section className="col-span-6">
           <Outlet />
         </section>
-        <aside className="col-span-3">
+        <aside className="col-span-3 h-fit top-2 sticky">
           <RightAside />
         </aside>
       </main>
