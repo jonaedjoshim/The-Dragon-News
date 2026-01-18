@@ -12,7 +12,7 @@ const CategoryNews = () => {
       return;
     } else if (id == "1") {
       const filteredNews = data.filter(
-        (news) => news.others.is_tpday_pick == true,
+        (news) => news.others.is_today_pick == true,
       );
       setCategoryNews(filteredNews);
     } else {
