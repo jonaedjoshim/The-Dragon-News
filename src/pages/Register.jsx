@@ -1,10 +1,35 @@
-import React from "react";
+import React, { use } from "react";
 import { Link } from "react-router";
+import { AuthContext } from "../provider/AuthProvider";
 
-const Login = () => {
+const Register = () => {
+  const { createUser, setUser } = use(AuthContext);
+  const handleRegister = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const photoUrl = form.photoUrl.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    createUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        setUser(user);
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.messege;
+        alert(errorMessage);
+      });
+    console.log({ name, photoUrl, email, password });
+  };
+
   return (
     <div className="flex justify-center mt-5 rounded-xl items-center flex-col">
-      <div className="card bg-base-100 shrink-0 shadow p-16">
+      <form
+        onSubmit={handleRegister}
+        className="card bg-base-100 shrink-0 shadow p-16"
+      >
         <h2 className="font-semibold text-3xl mx-auto text-[403F3F]">
           Register your account
         </h2>
@@ -13,26 +38,33 @@ const Login = () => {
           <label className="label text-xl font-semibold ">Your Name</label>
           <input
             type="text"
+            name="name"
             className="input mb-6 w-md p-5 text-base"
             placeholder="Enter your name"
+            required
           />
           <label className="label text-xl font-semibold ">Photo URL</label>
           <input
             type="text"
+            name="photoUrl"
             className="input mb-6 w-md p-5 text-base"
             placeholder="Share your photo url"
           />
           <label className="label text-xl font-semibold ">Email</label>
           <input
             type="email"
+            name="email"
             className="input mb-6 w-md p-5 text-base"
             placeholder="Enter your email address"
+            required
           />
           <label className="label text-xl font-semibold ">Password</label>
           <input
             type="password"
+            name="password"
             className="input mb-6 w-md p-5 text-base"
             placeholder="Password"
+            required
           />
           <div>
             <label className="label">
@@ -40,7 +72,10 @@ const Login = () => {
               Accept Term & Conditions
             </label>
           </div>
-          <button className="btn btn-xl bg-[#403F3F] mt-4 font-semibold text-xl text-white">
+          <button
+            type="submit"
+            className="btn btn-xl bg-[#403F3F] mt-4 font-semibold text-xl text-white"
+          >
             Register
           </button>
           <p className="text-base mt-7 mx-auto">
@@ -51,9 +86,9 @@ const Login = () => {
             </Link>
           </p>
         </fieldset>
-      </div>
+      </form>
     </div>
   );
 };
 
-export default Login;
+export default Register;
