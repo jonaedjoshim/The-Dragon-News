@@ -11,11 +11,13 @@ export const AuthContext = createContext();
 const auth = getAuth(app);
 const AuthProvier = ({ children }) => {
   const [user, setUser] = useState(null);
-  console.log();
+  const [loading, setLoading] = useState(true);
   const createUser = (email, password) => {
+    setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
   const signIn = (email, password) => {
+    setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
@@ -26,6 +28,7 @@ const AuthProvier = ({ children }) => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
+      setLoading(false);
     });
     return () => {
       unsubscribe();
@@ -38,6 +41,8 @@ const AuthProvier = ({ children }) => {
     createUser,
     logOut,
     signIn,
+    loading,
+    setLoading,
   };
   return <AuthContext value={authData}>{children}</AuthContext>;
 };
