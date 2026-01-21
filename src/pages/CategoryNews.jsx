@@ -17,14 +17,13 @@ const CategoryNews = () => {
       setCategoryNews(filteredNews);
     } else {
       const filteredNews = data.filter((news) => news.category_id == id);
-      console.log(filteredNews);
       setCategoryNews(filteredNews);
     }
   }, [data, id]);
 
   return (
     <div>
-      <h2 className="font-semibold text-xl mb-5">
+      <h2 className="font-semibold lg:text-xl mb-5">
         Total <span className="text-secondary">{CategoryNews.length}</span>{" "}
         found
       </h2>

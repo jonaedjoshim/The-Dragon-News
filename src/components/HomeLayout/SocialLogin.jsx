@@ -4,7 +4,7 @@ const SocialLogin = () => {
   return (
     <div className=" space-y-2">
       <h2 className="font-bold text-lg mb-5">Login with</h2>
-      <button className="btn w-full bg-white text-black border-[#e5e5e5]">
+      <button className="btn min-h-fit w-full bg-white text-black border-[#e5e5e5]">
         <svg
           aria-label="Google logo"
           width="16"
@@ -34,7 +34,7 @@ const SocialLogin = () => {
         </svg>
         Login with Google
       </button>
-      <button className="btn w-full bg-black text-white border-black">
+      <button className="btn min-h-fit w-full bg-black text-white border-black">
         <svg
           aria-label="GitHub logo"
           width="16"

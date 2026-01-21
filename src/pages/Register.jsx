@@ -37,7 +37,6 @@ const Register = () => {
         const errorMessage = error.messege;
         alert(errorMessage);
       });
-    console.log({ name, photoUrl, email, password });
   };
 
   return (

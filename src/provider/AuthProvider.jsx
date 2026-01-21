@@ -17,7 +17,6 @@ const AuthProvier = ({ children }) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
-  console.log(user);
   const updateUser = (updateData) => {
     return updateProfile(auth.currentUser, updateData);
   };
