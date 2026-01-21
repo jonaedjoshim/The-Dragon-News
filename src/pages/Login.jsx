@@ -1,9 +1,12 @@
-import React, { use } from "react";
-import { Link } from "react-router";
+import React, { use, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../provider/AuthProvider";
 
 const Login = () => {
+  const [error, setError] = useState("")
   const { signIn } = use(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
   const handleLogIn = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -13,12 +16,12 @@ const Login = () => {
     signIn(email, password)
       .then((result) => {
         const user = result.user;
-        console.log(user);
+        navigate(`${Location.state ? location.state : "/"}`, { replace: true });
       })
       .catch((error) => {
         const errorCode = error.code;
-        const errorMessage = error.message;
-        alert(errorCode, errorMessage);
+        // const errorMessage = error.message;
+        setError(errorCode);
       });
   };
 
@@ -50,10 +53,13 @@ const Login = () => {
             required
           />
           <div>
-            <a className="link link-hover text-sm hover:text-[#FF8C47] px-6">
+            <a className="link link-hover text-sm hover:text-[#FF8C47] px-2">
               Forgot password?
             </a>
           </div>
+          {
+            error && <p className="text-red-600 text-xs px-2">{error}</p>
+          }
           <button
             type="submit"
             className="btn btn-xl bg-[#403F3F] mt-4 font-semibold text-xl text-white"

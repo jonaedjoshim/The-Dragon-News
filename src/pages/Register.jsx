@@ -1,13 +1,20 @@
-import React, { use } from "react";
+import React, { use, useState } from "react";
 import { Link } from "react-router";
 import { AuthContext } from "../provider/AuthProvider";
 
 const Register = () => {
   const { createUser, setUser } = use(AuthContext);
   const handleRegister = (e) => {
+    const [nameError, setnameError] = useState("");
     e.preventDefault();
     const form = e.target;
     const name = form.name.value;
+    if (name.length < 3) {
+      setnameError("Name must be at least 3 characters long");
+      return;
+    } else {
+      setnameError("");
+    }
     const photoUrl = form.photoUrl.value;
     const email = form.email.value;
     const password = form.password.value;
@@ -43,6 +50,7 @@ const Register = () => {
             placeholder="Enter your name"
             required
           />
+          {nameError && <p className="text-red-600 text-xs">{nameError}</p>}
           <label className="label text-xl font-semibold ">Photo URL</label>
           <input
             type="text"
