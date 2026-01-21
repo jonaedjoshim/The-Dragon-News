@@ -7,11 +7,13 @@ const Navbar = () => {
   const { user, logOut } = use(AuthContext);
   const handleLogOut = () => {
     console.log("lets log out");
-    logOut().then(() => {
-      alert("Logged out");
-    }).cathch((error=>{
-      alert("An error happened.")
-    }))
+    logOut()
+      .then(() => {
+        alert("Logged out");
+      })
+      .cathch((error) => {
+        alert("An error happened.");
+      });
   };
 
   return (
@@ -23,7 +25,7 @@ const Navbar = () => {
         <NavLink to="/career">Career</NavLink>
       </div>
       <div className="flex gap-4">
-        <img src={userImg} alt="" />
+        <img className="w-10 rounded-full" src={`${user ? user.photoURL : userImg}`} alt="" />
         {user ? (
           <button onClick={handleLogOut} className="btn btn-primary px-8">
             Log out
